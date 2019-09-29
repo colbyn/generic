@@ -1,6 +1,6 @@
 [package]
 name = "generic-derive"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["colbyn <hello@colbyn.com>"]
 edition = "2018"
 license = "MIT"
@@ -14,7 +14,7 @@ proc-macro = true
 # crate-type = ["proc-macro"]
 
 [dependencies]
-generic-core = {path = "../core", version = "0.0.1"}
+generic-core = {path = "../core", version = "0.0.2"}
 quote = "^1.0"
 syn = "^1.0"
 proc-macro2 = "^1.0"

@@ -71,9 +71,8 @@ fn into_generic_struct(type_name: &proc_macro2::Ident, fields: &[Field]) -> proc
             fn into_generic(&self) -> Value {
                 use generic_core::into::*;
                 use generic_core::value::*;
-                use std::collections::HashMap;
 
-                let mut map: HashMap<String, Value> = HashMap::new();
+                let mut map: HashMap<String, Value> = std::collections::HashMap::new();
                 #(#field_conversions)*
                 Value::Struct(Struct {
                     type_name: String::from(stringify!(#type_name)),
@@ -107,7 +106,6 @@ fn into_generic_tuple_struct(type_name: &proc_macro2::Ident, fields: FieldsUnnam
             fn into_generic(&self) -> Value {
                 use generic_core::into::*;
                 use generic_core::value::*;
-                use std::collections::HashMap;
 
                 let mut vec = Vec::<Value>::new();
 
@@ -210,7 +208,6 @@ fn into_generic_enum(type_name: &proc_macro2::Ident, variants: &[Variant]) -> pr
             fn into_generic(&self) -> Value {
                 use generic_core::into::*;
                 use generic_core::value::*;
-                use std::collections::HashMap;
 
                 match self {
                     #(#arms)*
