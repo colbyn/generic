@@ -11,5 +11,5 @@ keywords = ["serialization", "derive", "tree", "data-structures", "data"]
 readme = "../README.md"
 
 [dependencies]
-generic-core = {path = "../core"}
-generic-derive = {path = "../derive"}
+generic-core = {path = "../core", version = "0.0.1"}
+generic-derive = {path = "../derive", version = "0.0.1"}
