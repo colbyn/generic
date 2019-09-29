@@ -1,0 +1,16 @@
+[package]
+name = "generic-derive"
+version = "0.0.1"
+authors = ["colbyn <hello@colbyn.com>"]
+edition = "2018"
+
+[lib]
+proc-macro = true
+# crate-type = ["proc-macro"]
+
+[dependencies]
+generic-core = {path = "../core"}
+quote = "^1.0"
+syn = "^1.0"
+proc-macro2 = "^1.0"
+rand = "0.7.2"
