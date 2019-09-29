@@ -6,8 +6,7 @@ edition = "2018"
 license = "MIT"
 repository = "https://github.com/colbyn/generic"
 homepage = "https://github.com/colbyn/generic"
-description = "Higher level serialization of rust values to rust values"
-keywords = ["serialization", "derive", "tree", "data-structures", "data"]
-readme = "../README.md"
+description = "[Internal] higher level serialization of rust values to rust values"
+keywords = []
 
 [dependencies]
