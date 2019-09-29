@@ -7,6 +7,7 @@ use std::collections::{
 use crate::value::{
     Value,
     Collection,
+    Numeric,
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -32,6 +33,98 @@ impl IntoGeneric for uuid::Uuid {
 ///////////////////////////////////////////////////////////////////////////////
 // BASIC IMPLEMENTATIONS - STD
 ///////////////////////////////////////////////////////////////////////////////
+
+impl IntoGeneric for f32 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::F64(*self as f64))
+    }
+}
+impl IntoGeneric for f64 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::F64(*self))
+    }
+}
+impl IntoGeneric for i8 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::I64(*self as i64))
+    }
+}
+impl IntoGeneric for i16 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::I64(*self as i64))
+    }
+}
+impl IntoGeneric for i32 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::I64(*self as i64))
+    }
+}
+impl IntoGeneric for i64 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::I64(*self))
+    }
+}
+impl IntoGeneric for i128 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::I128(*self))
+    }
+}
+impl IntoGeneric for u8 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::U64(*self as u64))
+    }
+}
+impl IntoGeneric for u16 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::U64(*self as u64))
+    }
+}
+impl IntoGeneric for u32 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::U64(*self as u64))
+    }
+}
+impl IntoGeneric for u64 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::U64(*self))
+    }
+}
+impl IntoGeneric for u128 {
+    fn into_generic(&self) -> Value {
+        Value::Numeric(Numeric::U128(*self))
+    }
+}
+
+// impl IntoGeneric for usize {
+//     fn into_generic(&self) -> Value {
+//         Value::Numeric(unimplemented!())
+//     }
+// }
+// impl IntoGeneric for isize {
+//     fn into_generic(&self) -> Value {
+//         Value::Numeric(unimplemented!())
+//     }
+// }
+
+impl IntoGeneric for () {
+    fn into_generic(&self) -> Value {
+        Value::Unit
+    }
+}
+
+impl IntoGeneric for bool {
+    fn into_generic(&self) -> Value {
+        Value::Bool(*self)
+    }
+}
+
+impl IntoGeneric for char {
+    fn into_generic(&self) -> Value {
+        let mut x = String::new();
+        x.push(*self);
+        Value::String(x)
+    }
+}
 
 impl IntoGeneric for String {
     fn into_generic(&self) -> Value {
