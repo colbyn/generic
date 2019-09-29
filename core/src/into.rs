@@ -22,16 +22,22 @@ pub trait IntoGeneric where Self: Sized {
 // BASIC IMPLEMENTATIONS - MISC
 ///////////////////////////////////////////////////////////////////////////////
 
-impl IntoGeneric for String {
+impl IntoGeneric for uuid::Uuid {
     fn into_generic(&self) -> Value {
-        Value::String(self.clone())
+        Value::String(self.to_string())
     }
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// BASIC IMPLEMENTATIONS - COLLECTIONS
+// BASIC IMPLEMENTATIONS - STD
 ///////////////////////////////////////////////////////////////////////////////
+
+impl IntoGeneric for String {
+    fn into_generic(&self) -> Value {
+        Value::String(self.clone())
+    }
+}
 
 impl<V: IntoGeneric> IntoGeneric for Vec<V> {
     fn into_generic(&self) -> Value {

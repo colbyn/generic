@@ -10,3 +10,4 @@ description = "[Internal] higher level serialization of rust values to rust valu
 keywords = []
 
 [dependencies]
+uuid = "^0.7"
